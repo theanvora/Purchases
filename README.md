@@ -24,7 +24,7 @@ A StoreKit 2 facade for in-app purchases and subscriptions — load products, pu
 ```swift
 import Purchases
 
-@StateObject private var purchases = PurchaseManager(productIDs: ["com.app.pro.yearly"])
+@State private var purchases = PurchaseManager(productIDs: ["com.app.pro.yearly"])
 
 // On appear
 .task { await purchases.load() }
@@ -41,7 +41,7 @@ try await purchases.restore()
 
 ## Requirements
 
-- iOS 16.0+ · Swift 5.9+
+- iOS 17.0+ · Swift 5.9+ (uses the Observation framework)
 
 ## License
 

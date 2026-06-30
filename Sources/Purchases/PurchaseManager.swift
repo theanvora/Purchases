@@ -1,21 +1,24 @@
 import Foundation
 import StoreKit
 import OSLog
+import Observation
 
 private let log = Logger(subsystem: Bundle.main.bundleIdentifier ?? "Purchases", category: "purchase")
 
 /// A StoreKit 2 facade: loads products, runs purchases, restores, and keeps a
-/// live set of entitlements you can observe from SwiftUI.
+/// live set of entitlements you can observe from SwiftUI via the Observation
+/// framework (iOS 17+).
 @MainActor
-public final class PurchaseManager: ObservableObject {
-    /// Product identifiers configured in App Store Connect.
-    @Published public private(set) var products: [Product] = []
+@Observable
+public final class PurchaseManager {
+    /// Products configured in App Store Connect.
+    public private(set) var products: [Product] = []
     /// Product identifiers the user currently owns / is subscribed to.
-    @Published public private(set) var purchasedIDs: Set<String> = []
-    @Published public private(set) var isLoading = false
+    public private(set) var purchasedIDs: Set<String> = []
+    public private(set) var isLoading = false
 
-    private let productIDs: Set<String>
-    private var updates: Task<Void, Never>?
+    @ObservationIgnored private let productIDs: Set<String>
+    @ObservationIgnored private var updates: Task<Void, Never>?
 
     public init(productIDs: Set<String>) {
         self.productIDs = productIDs
