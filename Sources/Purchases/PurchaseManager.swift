@@ -44,8 +44,6 @@ public final class PurchaseManager {
         await refreshEntitlements()
     }
 
-    public enum PurchaseOutcome: Sendable { case success, pending, cancelled }
-
     @discardableResult
     public func purchase(_ product: Product) async throws -> PurchaseOutcome {
         let result = try await product.purchase()

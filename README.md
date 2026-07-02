@@ -8,7 +8,9 @@ A StoreKit 2 facade for in-app purchases and subscriptions — load products, pu
 
 ## Features
 
-- **`PurchaseManager`** — an `ObservableObject` you bind to a paywall.
+- **`PaywallModel`** — a ready-made `@Observable` paywall view model depending on
+  the `PurchaseServicing` port (stub it in tests).
+- **`PurchaseManager`** — an `@Observable` you bind to a paywall.
 - Product loading, purchase, and `AppStore.sync()` restore.
 - Live **entitlements** via `Transaction.currentEntitlements` and a background `Transaction.updates` listener.
 - Verified transactions only (`VerificationResult` checked).
