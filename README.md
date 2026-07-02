@@ -3,7 +3,7 @@
 A StoreKit 2 facade for in-app purchases and subscriptions — load products, purchase, restore, and observe entitlements from SwiftUI. No third-party SDK.
 
 [![Swift](https://img.shields.io/badge/Swift-5.9+-orange.svg)](https://swift.org)
-[![Platform](https://img.shields.io/badge/iOS-16%2B-blue.svg)](https://developer.apple.com/ios/)
+[![Platform](https://img.shields.io/badge/iOS-26%2B-blue.svg)](https://developer.apple.com/ios/)
 [![SPM](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 
 ## Features
@@ -41,7 +41,7 @@ try await purchases.restore()
 
 ## Requirements
 
-- iOS 17.0+ · Swift 5.9+ (uses the Observation framework)
+- iOS 26.0+ · Swift 5.9+ (uses the Observation framework)
 
 ## License
 
